@@ -2,21 +2,29 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = policy_scope(Company)
-    render json: @companies
+    render json: @companies.map { |company| CompanySerializer.call(company) }
   end
 
   def show
-    authorize_company
-    render json: company
+    authorize Company
+    render json: CompanySerializer.call(company)
+  end
+
+  def create
+    authorize Company, :create?
+    @company = Company.create(permitted_attributes(Company))
+    render json: CompanySerializer.call(company), status: :created
+  end
+
+  def update
+    authorize Company
+    company.update!(permitted_attributes(Company))  
+    render json: CompanySerializer.call(company), status: :ok
   end
 
   private
 
   def company
     @company ||= Company.find(params[:id])
-  end
-
-  def authorize_company
-    authorize company
   end
 end

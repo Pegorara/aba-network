@@ -1,24 +1,26 @@
 class CompanyPolicy < ApplicationPolicy
-  attr_reader :current_user, :company
-
   def index?
-    current_user.admin?  
+    user.admin?  
   end
 
   def show?
-    current_user.present? && current_user.admin?  
+    user.present? && user.admin?  
   end
 
   def create?
-    current_user.admin?  
+    user.admin?  
   end
 
   def update?
-    current_user.admin?  
+    user.admin?  
   end
 
   def destroy?
-    current_user.admin?  
+    user.admin?  
+  end
+
+  def permitted_attributes
+    [:name, :cnpj]
   end
 
   class Scope < Scope
