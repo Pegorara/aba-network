@@ -1,33 +1,186 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+ # ACTIVERECORD
+activerecord:
+  errors:
+    models:
+      user:
+        attributes:
+          email:
+            blank: "can't be blank"
+            invalid: "is not a valid email address"
+            taken: "is already taken"
+          encrypted_password:
+            blank: "can't be blank"
+          name:
+            blank: "can't be blank"
+          role:
+            blank: "can't be blank"
+          admin:
+            blank: "can't be blank"
+          company_id:
+            blank: "can't be blank"
+      post:
+        attributes:
+          content:
+            blank: "can't be blank"
+          published:
+            blank: "can't be blank"
+      comment:
+        attributes:
+          content:
+            blank: "can't be blank"
+          user_id:
+            blank: "can't be blank"
+          commentable_id:
+            blank: "can't be blank"
+          commentable_type:
+            blank: "can't be blank"
+      company:
+        attributes:
+          name:
+            blank: "can't be blank"
+          cnpj:
+            blank: "can't be blank"
+            invalid: "is not a valid CNPJ"
+      domain:
+        attributes:
+          domain_url:
+            blank: "can't be blank"
+      company_domain:
+        attributes:
+          company_id:
+            blank: "can't be blank"
+          domain_id:
+            blank: "can't be blank"
+      attachment:
+        attributes:
+          record_type:
+            blank: "can't be blank"
+          record_id:
+            blank: "can't be blank"
+          post_id:
+            blank: "can't be blank"
+
+# COMMENTS
+comments:
+  index:
+    success: "Comments loaded successfully."
+  show:
+    success: "Comment loaded successfully."
+    not_found: "Comment not found."
+  create:
+    success: "Comment created successfully."
+    failure: "Failed to create the comment."
+  update:
+    success: "Comment updated successfully."
+    failure: "Failed to update the comment."
+  destroy:
+    success: "Comment deleted successfully."
+    failure: "Failed to delete the comment."
+  unauthorized: "You do not have permission to perform this action."
+
+  errors:
+    comment_policy:
+      create: "You must be authenticated to create a comment."
+      update: "You can only update your own comments."
+      destroy: "You can only delete your own comments."
+
+# USERS
+users:
+  index:
+    success: "Users loaded successfully."
+    failure: "Failed to load users."
+  show:
+    success: "User loaded successfully."
+    not_found: "User not found."
+  create:
+    success: "User created successfully."
+    failure: "Failed to create the user."
+  update:
+    success: "User updated successfully."
+    failure: "Failed to update the user."
+  destroy:
+    success: "User deleted successfully."
+    failure: "Failed to delete the user."
+  unauthorized: "You do not have permission to perform this action."
+  
+  errors:
+    user_policy:
+      create: "You must be authenticated to create a user."
+      update: "You can only update your own data."
+      destroy: "You can only delete your own account."
+
+# POSTS
+posts:
+  index:
+    success: "Posts loaded successfully."
+    failure: "Failed to load posts."
+  show:
+    success: "Post loaded successfully."
+    not_found: "Post not found."
+  create:
+    success: "Post created successfully."
+    failure: "Failed to create the post."
+  update:
+    success: "Post updated successfully."
+    failure: "Failed to update the post."
+  destroy:
+    success: "Post deleted successfully."
+    failure: "Failed to delete the post."
+  unauthorized: "You do not have permission to perform this action."
+  
+  errors:
+    post_policy:
+      create: "You must be authenticated to create a post."
+      update: "You can only update your own posts."
+      destroy: "You can only delete your own posts." 
+
+# DOMAINS
+domains:
+  index:
+    success: "Domains loaded successfully."
+    failure: "Failed to load domains."
+  show:
+    success: "Domain loaded successfully."
+    not_found: "Domain not found."
+  create:
+    success: "Domain created successfully."
+    failure: "Failed to create the domain."
+  update:
+    success: "Domain updated successfully."
+    failure: "Failed to update the domain."
+  destroy:
+    success: "Domain deleted successfully."
+    failure: "Failed to delete the domain."
+  unauthorized: "You do not have permission to perform this action."
+  
+  errors:
+    domain_policy:
+      create: "Only administrators can create domains."
+      update: "Only administrators can update domains."
+      destroy: "Only administrators can delete domains."
+
+# COMPANIES
+companies:
+  index:
+    success: "Companies loaded successfully."
+    failure: "Failed to load companies."
+  show:
+    success: "Company loaded successfully."
+    not_found: "Company not found."
+  create:
+    success: "Company created successfully."
+    failure: "Failed to create the company."
+  update:
+    success: "Company updated successfully."
+    failure: "Failed to update the company."
+  destroy:
+    success: "Company deleted successfully."
+    failure: "Failed to delete the company."
+  unauthorized: "You do not have permission to perform this action."
+  
+  errors:
+    company_policy:
+      create: "Only administrators can create companies."
+      update: "Only administrators can update companies."
+      destroy: "Only administrators can delete companies."
