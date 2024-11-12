@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :authenticate_user!,unless: :devise_controller?
-  
+
   private
 
   def user_not_authorized(exception)

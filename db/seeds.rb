@@ -27,7 +27,7 @@ user1 = User.create!(
   name: "Alice",
   email: "alice@softex.com",
   password: "Password123@",
-  role: :user,    
+  role: :user,
   admin: false,
   company: softex
 )
@@ -36,7 +36,7 @@ user2 = User.create!(
   name: "Bob",
   email: "bob@softex.com",
   password: "Password123@",
-  role: :moderator,  
+  role: :moderator,
   admin: false,
   company: softex
 )
@@ -45,7 +45,7 @@ user3 = User.create!(
   name: "Charlie",
   email: "charlie@softex.com",
   password: "Password123@",
-  role: :user,   
+  role: :user,
   admin: false,
   company: softex
 )
@@ -55,7 +55,7 @@ user3 = User.create!(
 #   name: "DEUS-RICHARDO",
 #   email: "deus@softex.com",
 #   password: "Password123@",
-#   role: :admin,    
+#   role: :admin,
 #   admin: true,
 #   company: softex
 # )

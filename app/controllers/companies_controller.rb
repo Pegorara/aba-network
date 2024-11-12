@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
 
   def update
     authorize Company
-    company.update!(permitted_attributes(Company))  
+    company.update!(permitted_attributes(Company))
     render json: CompanySerializer.call(company), status: :ok
   end
 

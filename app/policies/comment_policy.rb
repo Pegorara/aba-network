@@ -8,7 +8,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? 
+    user.present?
   end
 
   def new?
@@ -18,7 +18,7 @@ class CommentPolicy < ApplicationPolicy
   def update?
     user.present? && (user == record.user)
   end
-  
+
   def destroy?
     user.present? && (user == record.user)
   end

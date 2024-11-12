@@ -7,7 +7,7 @@ class UserSerializer < ApplicationSerializer
         role: user.role,
         admin: user.admin
       }
-  
+
       base_data.merge(serialize_timestamps(user))
     end
   end
