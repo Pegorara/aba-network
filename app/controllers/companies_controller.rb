@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def index
     @companies = policy_scope(Company)
     render json: @companies.map { |company| CompanySerializer.call(company) }

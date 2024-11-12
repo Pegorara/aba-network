@@ -24,7 +24,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-      [:content, :commentable_id, :commentable_type, :user_id]
+    [:content, :commentable_id, :commentable_type, :user_id]
   end
 
   class Scope < ApplicationPolicy::Scope

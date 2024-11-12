@@ -3,5 +3,4 @@ class Attachment < ApplicationRecord
   belongs_to :post
 
   has_many_attached :files
-
 end

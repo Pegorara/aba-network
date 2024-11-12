@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
                      elsif params[:comment_id]
                        Comment.find_by(id: params[:comment_id])
                      else
-                        raise ActionController::ParameterMissing, 'Commentable not found.'
+                       raise ActionController::ParameterMissing, "Commentable not found."
                      end
   end
 
