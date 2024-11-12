@@ -12,3 +12,5 @@ AllCops:
     - 'db/migrate/*'
     - 'bin/*'
 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
