@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
 
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
-    message = I18n.t("errors.#{policy_name}.#{exception.query}", default: "Você não tem permissão para realizar esta ação.")
+    message = I18n.t("errors.#{policy_name}.#{exception.query}")
     render json: { error: message }, status: :forbidden
   end  
 end
