@@ -1,23 +1,23 @@
 class CommentsController < ApplicationController
   # GET /posts/:post_id/comments or /comments/:comment_id/comments
   def index
-    comments = policy_scope(Comment).order(created_at: :desc)
-    
+    comments = policy_scope(Comment)
+                .where(commentable: commentable)
+                .order(created_at: :desc)
     render json: comments.map { |comment| CommentSerializer.call(comment) }
   end
 
   # GET /posts/:post_id/comments/:id or /comments/:comment_id/comments/:id
   def show
     authorize comment
-    
     render json: CommentSerializer.call(comment)
   end
 
-  #POST /posts/:post_id/comments or /comments/:comment_id/comments
+  # POST /posts/:post_id/comments or /comments/:comment_id/comments
   def create
     comment = commentable.comments.create(permitted_attributes(Comment).merge(user: current_user)) 
     authorize comment
-    
+
     render json: CommentSerializer.call(comment), status: :created
   end
 
@@ -25,13 +25,14 @@ class CommentsController < ApplicationController
   def update
     authorize comment
     comment.update!(permitted_attributes(Comment))
-    
+
     render json: CommentSerializer.call(comment), status: :ok
   end
 
   def destroy
     authorize comment
     comment.destroy!
+    render_deletion_message('Comment')
   end
 
   private

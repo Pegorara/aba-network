@@ -145,9 +145,9 @@ pt-BR:
 
     errors:
       comment_policy:
-        create: "Você precisa estar autenticado para criar um comentário."
-        update: "Você só pode atualizar seus próprios comentários."
-        destroy: "Você só pode excluir seus próprios comentários."
+        create?: "Você precisa estar autenticado para criar um comentário."
+        update?: "Você só pode atualizar seus próprios comentários."
+        destroy?: "Você só pode excluir seus próprios comentários."
 
 # USERS
   users:
