@@ -16,20 +16,20 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present? && (user == record.user)
+    user.present? && (user == record.user || user.admin? || user.moderator?)
   end
 
   def destroy?
-    user.present? && (user == record.user)
+    user.present? && (user == record.user || user.admin? || user.moderator?)
   end
 
   def permitted_attributes
-    [:content, :commentable_id, :commentable_type, :user_id]
+    [:content, :commentable_id, :commentable_type]
   end
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 end

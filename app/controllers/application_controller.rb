@@ -3,12 +3,17 @@ class ApplicationController < ActionController::API
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  before_action :authenticate_user!,unless: :devise_controller?
+  before_action :authenticate_user!, unless: :devise_controller?
+
+  def handle_record_invalid(exception)
+    render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+  end
 
   private
 
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
-    render json: { error: I18n.t("errors.#{policy_name}.#{exception.query}") }, status: :forbidden
-  end
+    message = I18n.t("errors.#{policy_name}.#{exception.query}", default: "Você não tem permissão para realizar esta ação.")
+    render json: { error: message }, status: :forbidden
+  end  
 end
