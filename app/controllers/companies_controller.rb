@@ -22,6 +22,12 @@ class CompaniesController < ApplicationController
     render json: CompanySerializer.call(company), status: :ok
   end
 
+  def destroy
+    authorize Company
+    company.destroy!
+    head :no_content
+  end
+
   private
 
   def company
