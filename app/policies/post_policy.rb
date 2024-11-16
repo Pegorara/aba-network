@@ -24,7 +24,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:content, :user_id, :published, attachments: []]
+    [:content, :user_id, :published]
   end
 
   class Scope < ApplicationPolicy::Scope

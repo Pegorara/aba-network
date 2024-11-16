@@ -41,12 +41,8 @@ class PostsController < ApplicationController
 
   def attach_files(post)
     return unless params[:post][:attachments].present?
-
     Array(params[:post][:attachments]).each do |attachment|
-      # Check if the attachment is already attached to the post
-      unless post.attachments.any? { |a| a.filename.to_s == attachment.original_filename }
-        post.attachments.attach(attachment)
-      end
+      post.attachments.attach(attachment)
     end
   end
 end
