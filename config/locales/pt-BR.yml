@@ -219,4 +219,3 @@ pt-BR:
         failure: "Falha ao criar o anexo."
       destroy:
         failure: "Falha ao excluir o anexo."
-        
