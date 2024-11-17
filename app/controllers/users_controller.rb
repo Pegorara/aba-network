@@ -26,6 +26,12 @@ class UsersController < ApplicationController
 
     render json: UserSerializer.call(user), status: :ok
   end
+
+  def destroy
+    authorize user
+    user.destroy!
+    render json: { message: 'Usuário excluído com sucesso.' }, status: :ok
+  end
   
   private
 
