@@ -12,8 +12,11 @@ class ApplicationController < ActionController::API
   private
 
   def user_not_authorized(exception)
-    policy_name = exception.policy.class.to_s.underscore
-    message = I18n.t("errors.#{policy_name}.#{exception.query}")
+    policy_name = exception.policy.class.to_s.underscore.gsub('_policy', '')
+    action = exception.query.to_s.chomp('?')
+    resource_scope = policy_name.pluralize
+    translation_key = "#{resource_scope}.errors.#{policy_name}_policy.#{action}"
+    message = I18n.t(translation_key)
     render json: { error: message }, status: :forbidden
-  end  
+  end
 end
