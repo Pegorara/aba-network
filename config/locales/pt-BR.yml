@@ -11,8 +11,12 @@ pt-BR:
               taken: "já está em uso"
             encrypted_password:
               blank: "não pode ficar em branco"
+            password:
+              blank: "não pode ficar em branco"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
             name:
               blank: "não pode ficar em branco"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
             role:
               blank: "não pode ficar em branco"
             admin:
@@ -25,12 +29,17 @@ pt-BR:
               blank: "não pode ficar em branco"
             published:
               blank: "não pode ficar em branco"
+              inclusion: "deve ser verdadeiro ou falso"
         comment:
           attributes:
             content:
               blank: "não pode ficar em branco"
-            user_id:
+            user:
               blank: "não pode ficar em branco"
+              required: "é obrigatório"
+            commentable:
+              blank: "não pode ficar em branco"
+              required: "é obrigatório"
             commentable_id:
               blank: "não pode ficar em branco"
             commentable_type:
@@ -39,13 +48,16 @@ pt-BR:
           attributes:
             name:
               blank: "não pode ficar em branco"
+              too_short: "é muito curto (mínimo de %{count} caracteres)"
             cnpj:
               blank: "não pode ficar em branco"
               invalid: "não é um CNPJ válido"
+              wrong_length: "deve ter exatamente %{count} caracteres"
         domain:
           attributes:
             domain_url:
               blank: "não pode ficar em branco"
+              invalid: "não é um URL válido"
         company_domain:
           attributes:
             company_id:
@@ -60,6 +72,15 @@ pt-BR:
               blank: "não pode ficar em branco"
             post_id:
               blank: "não pode ficar em branco"
+      messages:
+        blank: "não pode ficar em branco"
+        too_short: "é muito curto (mínimo de %{count} caracteres)"
+        invalid: "não é válido"
+        taken: "já está em uso"
+        wrong_length: "deve ter exatamente %{count} caracteres"
+        required: "é obrigatório"
+        inclusion: "deve ser um valor válido"
+
 
 #COMMENTS
   comments:
