@@ -80,6 +80,7 @@ pt-BR:
         wrong_length: "deve ter exatamente %{count} caracteres"
         required: "é obrigatório"
         inclusion: "deve ser um valor válido"
+        record_invalid: "Registro inválido. Verifique os campos obrigatórios ou as validações." 
 
 
 #COMMENTS
