@@ -13,7 +13,7 @@ class DomainsController < ApplicationController
     authorize Domain
     domain = Domain.create(permitted_attributes(Domain))
     company = Company.find(params[:company_id]) 
-    domain.companies << company
+    domain.company_domains.create!(company: company)
     render json: DomainSerializer.call(domain), status: :created
   end
   
