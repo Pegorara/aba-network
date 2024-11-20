@@ -29,7 +29,7 @@ class PostPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      scope.all
+      scope.includes(:users).where(published: true)
     end
   end
 end

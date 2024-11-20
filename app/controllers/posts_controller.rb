@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    post = policy_scope(Post).order(created_at: :desc)
-    render json: post.map { |post| PostSerializer.call(post) }
+    posts = policy_scope(Post).with_attached_attachments.order(created_at: :desc)
+    render json: posts.map { |post| PostSerializer.call(post) }
   end
 
   def show
