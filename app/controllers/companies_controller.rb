@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def index
     @companies = policy_scope(Company)
 
@@ -22,7 +21,7 @@ class CompaniesController < ApplicationController
   def update
     authorize Company
     company.update!(permitted_attributes(Company))  
-
+    
     render json: CompanySerializer.call(company), status: :ok
   end
 
