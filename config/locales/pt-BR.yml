@@ -1,5 +1,4 @@
 pt-BR:
-#ACTIVERECORD
   activerecord:
     errors:
       models:
@@ -82,8 +81,6 @@ pt-BR:
         inclusion: "deve ser um valor válido"
         record_invalid: "Registro inválido. Verifique os campos obrigatórios ou as validações." 
 
-
-#COMMENTS
   comments:
     index:
       success: "Comentários carregados com sucesso."
@@ -112,7 +109,6 @@ pt-BR:
         update: "Você só pode atualizar seus próprios comentários."
         destroy: "Você só pode excluir seus próprios comentários."      
 
-# USERS
   users:
     index:
       success: "Usuários carregados com sucesso."
@@ -137,7 +133,6 @@ pt-BR:
         update: "Você só pode atualizar seus próprios dados."
         destroy: "Você só pode excluir sua própria conta."
 
-# POSTS
   posts:
     index:
       success: "Posts carregados com sucesso."
@@ -167,7 +162,6 @@ pt-BR:
         update: "Você só pode atualizar seus próprios posts."
         destroy: "Você só pode excluir seus próprios posts."
 
-# DOMAINS
   domains:
     index:
       success: "Domínios carregados com sucesso."
@@ -197,7 +191,6 @@ pt-BR:
         update: "Apenas administradores podem atualizar domínios."
         destroy: "Apenas administradores podem excluir domínios."
 
-# COMPANIES
   companies:
     index:
       success: "Empresas carregadas com sucesso."
@@ -227,7 +220,6 @@ pt-BR:
         update: "Apenas administradores podem atualizar empresas."
         destroy: "Apenas administradores podem excluir empresas."
 
-# ATTACHMENTS
   attachments:
     create:
       success: "Anexo criado com sucesso."
