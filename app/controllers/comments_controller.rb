@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   # POST /posts/:post_id/comments or /comments/:comment_id/comments
   def create
-    comment = commentable.comments.create(permitted_attributes(Comment).merge(user: current_user)) 
+    comment = commentable.comments.create(permitted_attributes(Comment).merge(user: current_user))
     authorize comment
 
     render json: CommentSerializer.call(comment), status: :created
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
   def destroy
     authorize comment
     comment.destroy!
-    render_deletion_message('Comment')
+    head :no_content
   end
 
   private
@@ -42,8 +42,8 @@ class CommentsController < ApplicationController
                        Post.find_by(id: params[:post_id])
                      elsif params[:comment_id]
                        Comment.find_by(id: params[:comment_id])
-                     else 
-                        raise ActionController::ParameterMissing, 'Commentable not found.'
+                     else
+                       raise ActionController::ParameterMissing, "Commentable not found."
                      end
   end
 

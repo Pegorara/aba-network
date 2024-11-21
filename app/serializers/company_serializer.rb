@@ -1,5 +1,5 @@
 class CompanySerializer < ApplicationSerializer
-  def self.call(company) 
+  def self.call(company)
     base_data = {
       cnpj: company.cnpj,
       name: company.name

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     authorize User
     @users = policy_scope(User).order(created_at: :desc)
-    
+
     render json: @users.map { |user| UserSerializer.call(user) }
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     render json: UserSerializer.call(@user), status: :created
   end
-  
+
 
   def update
     authorize user
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     render json: UserSerializer.call(user), status: :ok
   end
-  
+
   private
 
   def user
