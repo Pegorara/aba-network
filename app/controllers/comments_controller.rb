@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
   def destroy
     authorize comment
     comment.destroy!
-    render_deletion_message('Comment')
+    head :no_content
   end
 
   private

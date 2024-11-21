@@ -1,5 +1,4 @@
-en:
- # ACTIVERECORD
+#ACTIVERECORD
 activerecord:
   errors:
     models:
@@ -61,7 +60,7 @@ activerecord:
           post_id:
             blank: "can't be blank"
 
-# COMMENTS
+#COMMENTS
 comments:
   index:
     success: "Comments loaded successfully."
@@ -78,10 +77,15 @@ comments:
     success: "Comment deleted successfully."
     failure: "Failed to delete the comment."
   unauthorized: "You do not have permission to perform this action."
-
   errors:
+    create:
+      failure: "Failed to create the comment."
+    update:
+      failure: "Failed to update the comment."
+    destroy:
+      failure: "Failed to delete the comment."
     comment_policy:
-      create: "You must be authenticated to create a comment."
+      create: "You need to be authenticated to create a comment."
       update: "You can only update your own comments."
       destroy: "You can only delete your own comments."
 
@@ -106,7 +110,7 @@ users:
   
   errors:
     user_policy:
-      create: "You must be authenticated to create a user."
+      create: "You need to be authenticated to create a user."
       update: "You can only update your own data."
       destroy: "You can only delete your own account."
 
@@ -128,12 +132,17 @@ posts:
     success: "Post deleted successfully."
     failure: "Failed to delete the post."
   unauthorized: "You do not have permission to perform this action."
-  
   errors:
+    create:
+      failure: "Failed to create the post."
+    update:
+      failure: "Failed to update the post."
+    destroy:
+      failure: "Failed to delete the post."
     post_policy:
-      create: "You must be authenticated to create a post."
+      create: "You need to be authenticated to create a post."
       update: "You can only update your own posts."
-      destroy: "You can only delete your own posts." 
+      destroy: "You can only delete your own posts."
 
 # DOMAINS
 domains:
@@ -153,8 +162,13 @@ domains:
     success: "Domain deleted successfully."
     failure: "Failed to delete the domain."
   unauthorized: "You do not have permission to perform this action."
-  
   errors:
+    create:
+      failure: "Failed to create the domain."
+    update:
+      failure: "Failed to update the domain."
+    destroy:
+      failure: "Failed to delete the domain."
     domain_policy:
       create: "Only administrators can create domains."
       update: "Only administrators can update domains."
@@ -178,9 +192,29 @@ companies:
     success: "Company deleted successfully."
     failure: "Failed to delete the company."
   unauthorized: "You do not have permission to perform this action."
-  
   errors:
+    create:
+      failure: "Failed to create the company."
+    update:
+      failure: "Failed to update the company."
+    destroy:
+      failure: "Failed to delete the company."
     company_policy:
       create: "Only administrators can create companies."
       update: "Only administrators can update companies."
       destroy: "Only administrators can delete companies."
+
+# ATTACHMENTS
+attachments:
+  create:
+    success: "Attachment created successfully."
+    failure: "Failed to create the attachment."
+  destroy:
+    success: "Attachment deleted successfully."
+    failure: "Failed to delete the attachment."
+  unauthorized: "You do not have permission to perform this action."
+  errors:
+    create:
+      failure: "Failed to create the attachment."
+    destroy:
+      failure: "Failed to delete the attachment."
