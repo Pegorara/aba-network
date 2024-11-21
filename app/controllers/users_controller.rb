@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def destroy
     authorize user
     user.destroy!
-    render json: { message: 'Usuário excluído com sucesso.' }, status: :ok
+    head :no_content
   end
   
   private
