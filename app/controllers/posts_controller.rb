@@ -31,6 +31,7 @@ class PostsController < ApplicationController
   def destroy
     authorize post
     post.destroy
+    head :no_content
   end
 
   private
