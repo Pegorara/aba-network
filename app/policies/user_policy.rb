@@ -26,7 +26,6 @@ class UserPolicy < ApplicationPolicy
     [:name, :email, :password]
 end
   
-
   class Scope < ApplicationPolicy::Scope
     def resolve
       scope.all

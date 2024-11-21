@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   include DeviseTokenAuth::Concerns::User
-  
+
   validates :name, presence: true, length: { minimum: 2, maximum: 50 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validate :email_domain_check, on: :create
@@ -28,7 +27,7 @@ class User < ApplicationRecord
       errors.add(:email, "deve ser de um domínio válido")
     end
   end
-  
+
   def password_complexity
     return if password.blank?
     unless password.match(/\A(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).+\z/)
