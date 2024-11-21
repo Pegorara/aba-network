@@ -16,11 +16,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present? && record.users.include?(user)
+    user.present? && (record.users.include?(user) || user.admin? || user.moderator?)
   end
 
   def destroy?
-    user.present? && record.users.include?(user)
+    user.present? && (record.users.include?(user) || user.admin? || user.moderator?)
   end
 
   def permitted_attributes
@@ -29,7 +29,7 @@ class PostPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      scope.all
+      scope.includes(:users)
     end
   end
 end
