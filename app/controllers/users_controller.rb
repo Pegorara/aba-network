@@ -19,12 +19,17 @@ class UsersController < ApplicationController
     render json: UserSerializer.call(@user), status: :created
   end
 
-
   def update
     authorize user
     user.update!(permitted_attributes(User))
 
     render json: UserSerializer.call(user), status: :ok
+  end
+
+  def destroy
+    authorize user
+    user.destroy!
+    head :no_content
   end
 
   private
