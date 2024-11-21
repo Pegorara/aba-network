@@ -1,22 +1,22 @@
 class CompanyPolicy < ApplicationPolicy
   def index?
-    user.admin?  
+    user.admin?
   end
 
   def show?
-    user.present? && user.admin?  
+    user.present? && user.admin?
   end
 
   def create?
-    user.admin?  
+    user.admin?
   end
 
   def update?
-    user.admin?  
+    user.admin?
   end
 
   def destroy?
-    user.admin?  
+    user.admin?
   end
 
   def permitted_attributes
@@ -31,9 +31,9 @@ class CompanyPolicy < ApplicationPolicy
 
     def resolve
       if @user&.admin? # Use safe navigation operator para evitar erro se @user for nil
-        @scope.all  
+        @scope.all
       else
-        @scope.none  
+        @scope.none
       end
     end
   end

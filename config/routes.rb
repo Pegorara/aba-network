@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :companies, except: :destroy
   resources :posts, only: [:index, :show, :create, :update, :destroy]
   resources :users, except: :destroy
-  
+
   resources :posts do
     resources :comments, only: [:show, :index, :create, :update, :destroy]
   end
