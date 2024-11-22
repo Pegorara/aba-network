@@ -1,12 +1,14 @@
 class DomainsController < ApplicationController
   def index
     @domains = policy_scope(Domain)
-    render json: @domains
+  
+    render json: @domains.map { |domain| DomainSerializer.call(domain) }
   end
 
   def show
     authorize Domain
-    render json: domain
+
+    render json: DomainSerializer.call(domain)
   end
 
   def create
