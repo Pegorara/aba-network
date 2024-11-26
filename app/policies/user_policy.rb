@@ -21,10 +21,11 @@ class UserPolicy < ApplicationPolicy
 
   def permitted_attributes
     if user.admin?
-      [:name, :email, :password, :role, :admin]
+      [:name, :email, :password, :role, :admin, :company_id]
+    else
+      [:name, :email, :password]
     end
-    [:name, :email, :password]
-end
+  end
   
   class Scope < ApplicationPolicy::Scope
     def resolve
